@@ -3,12 +3,11 @@ import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 import dummyArticles from "../../data/dummy-articles";
 import classes from "./Articles.module.css";
+import { useBookmarkContext } from "../../context/bookmark-context";
 
-function Articles({
-  bookmarkedArticles,
-  onBookmarkArticle,
-  onUnbookmarkArticle,
-}) {
+function Articles() {
+  const { bookmarkedArticles, bookmarkArticle, unbookmarkArticle } =
+    useBookmarkContext();
   return (
     <ul className={classes.list}>
       {dummyArticles.map((article) => {
@@ -18,12 +17,12 @@ function Articles({
         );
 
         // default button action => bookmark article, because not bookmarked yet
-        let buttonAction = () => onBookmarkArticle(article);
+        let buttonAction = () => bookmarkArticle(article);
         // default button icon: Empty bookmark icon, because not bookmarked
         let buttonIcon = <FaRegBookmark />;
 
         if (isBookmarked) {
-          buttonAction = () => onUnbookmarkArticle(article.id);
+          buttonAction = () => unbookmarkArticle(article.id);
           buttonIcon = <FaBookmark />;
         }
 
