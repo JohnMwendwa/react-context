@@ -9,8 +9,11 @@ body {
 }
 
 main {
-  width: 50rem;
+  max-width: 50rem;
   margin: auto;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
 ul {

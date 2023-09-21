@@ -24,4 +24,5 @@
   border: none;
   cursor: pointer;
   color: #3b2605;
+  z-index: 10;
 }
