@@ -1,6 +1,8 @@
-import classes from './BookmarkSummary.module.css';
+import classes from "./BookmarkSummary.module.css";
+import { useBookmarkContext } from "../../context/bookmark-context";
 
-function BookmarkSummary({ bookmarkedArticles }) {
+function BookmarkSummary() {
+  const { bookmarkedArticles } = useBookmarkContext();
   const numberOfArticles = bookmarkedArticles.length;
 
   return (
